@@ -3,11 +3,28 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      todos [
+        { description: 'Walk Dog', isCompleted: true},
+        { description: 'Do Laundry', isCompleted: true},
+        { description: 'Vaccumm House',isCompleted: true},
+      ]
+    };
+  }
   render() {
     return (
       <div className="App">
-
-      </div>
+      <ul>
+        <ToDo />
+        <ToDo />
+        { this.state.todos.map ( (todo,index)=>
+          <ToDo key={ index }/>
+          <ToDo key={ index } description={ todo.description } isCompleted={}
+    )}
+    </ul>
+    </div>
     );
   }
 }
