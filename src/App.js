@@ -6,9 +6,9 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      todos [
+      todos: [
         { description: 'Walk Dog', isCompleted: true},
-        { description: 'Do Laundry', isCompleted: true},
+        { description: 'Do Laundry', isCompleted: false},
         { description: 'Vaccumm House',isCompleted: true},
       ]
     };
