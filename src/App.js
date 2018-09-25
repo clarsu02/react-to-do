@@ -10,20 +10,46 @@ import ToDo from './components/ToDo.js';
          { description: 'Walk the cat', isCompleted: true },
          { description: 'Throw the dishes away', isCompleted: false },
          { description: 'Buy new dishes', isCompleted: false }
-       ]
+       ],
+       newTodoDescription: ""
      };
    }
+
+   handleChange(e) {
+      this.setState({ newTodoDescription: e.target.value })
+}
+   handleSubmit(e) {
+     e.preventDefault();//this prevents the default page from reloading
+     if (!this.state.newTodoDescription) { return }
+     console.log("handleSubmit called");
+     const newTodo = { description: this.state.newTodoDescription, isCompleted: false };
+     this.setState({ todos: [...this.state.todos, newTodo], newTodoDescription: '' });
+   }
+
+   toggleComplete(index) {
+    const todos = this.state.todos.slice();
+    const todo = todos[index];
+    todo.isCompleted = todo.isCompleted ? false : true;
+    this.setState({ todos: todos });
+  } // this code changes the state of the App component and the UI
+
    render() {
      return (
       <div className="App">
        <ul>
        { this.state.todos.map( (todo, index) =>
-         <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } />
+         <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } toggleComplete={ () => this.toggleComplete(index) } /> // this change lets us pass the todo index to the map function
        )}
+
        </ul>
+       <form onSubmit={ (e) => this.handleSubmit(e) }>
+          <input type="text" value={ this.state.newTodoDescription } onChange={ (e) => this.handleChange(e) } />
+          <input type="submit" />
+        </form>
      </div>
      );
    }
  }
 
  export default App;
+// onSubmit is an attribute,// e is the parameter and e is short for event
