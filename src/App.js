@@ -21,7 +21,13 @@ class App extends Component {
         <ToDo />
         { this.state.todos.map ( (todo,index)=>
           <ToDo key={ index }/>
-          <ToDo key={ index } description={ todo.description } isCompleted={}
+          <ToDo key={ index } description={ todo.description } isCompleted={ todo.isCompleted } />
+           )}
+         </ul>
+       </div>
+     );
+   }
+ }
     )}
     </ul>
     </div>
