@@ -37,7 +37,7 @@ import ToDo from './components/ToDo.js';
       const todos = this.state.todos.slice(); //this is the constant that creates the new slice of data that allows us to delete items from the array
       const toDelete = todos[index]; //this gives them there own index
       const filteredList = todos.filter(todos => todos !==toDelete ); //creates a const that passes the filtered or deleted items to const "filterListed"
-      this.setState({ todos: filteredList }); //sets the state to the filterd list
+      this.setState({ todos: filteredList }); //sets the state to the filterd lists
 
   }
    render() {
